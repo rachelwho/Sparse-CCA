@@ -44,6 +44,43 @@ W_m = matrix(0, nrow = num_run, ncol = 2*p)
 #     }
 #   }
 # }
+### Default initial starting point
+InitF <- function(X1, X2, type1, type2,
+                  lamseq1 = NULL, lamseq2 = NULL, nlamseq = 20, lam.eps = 1e-02,
+                  w1init = NULL, w2init = NULL, BICtype,
+                  KendallR = NULL,
+                  maxiter = 100, tol = 1e-2, trace = FALSE, lassoverbose = FALSE){
+  n <- nrow(X1)
+  p1 <- ncol(X1); p2 <- ncol(X2);
+  p <- p1 + p2
+  
+  ### Compute Kendall tau if there is no input.
+  if(is.null(KendallR)){
+    R <- estimateR_mixed(X1, X2, type1 = type1, type2 = type2)$R
+  } else {
+    R <- KendallR; rm(KendallR)
+  }
+  
+  R1 <- as.matrix(R[1:p1, 1:p1])
+  R2 <- as.matrix(R[(p1+1):p, (p1+1):p])
+  R12 <- as.matrix(R[1:p1, (p1+1):p])
+  
+  ### Default initial starting point
+  if (is.null(w1init) | is.null(w2init)){
+    RCCA <- myrcc(R1 = R1, R2 = R2, R12 = R12, lambda1 = 0.25, lambda2 = 0.25)
+    if (is.null(w1init)){
+      w1init <- as.matrix(RCCA$w1, ncol=1)
+    }
+    if (is.null(w2init)){
+      w2init <- as.matrix(RCCA$w2, ncol=1)
+    }
+  }
+  
+  # standardize initial starting points - for both lambda seq generation (lambdaseq_generate) and cca algorithm (find_w12bic)
+  
+  # write.table(c(w1init, w2init), sep = ',', file = paste0("data/", path,"/minit",k-1,".csv"), col.names = FALSE, row.names = FALSE)
+}
+
 
 cal_error = function(w, v){
   w = w / norm(w, "2")
@@ -186,39 +223,3 @@ for (j in c(13,14)) {
 
 
 
-### Default initial starting point
-InitF <- function(X1, X2, type1, type2,
-                  lamseq1 = NULL, lamseq2 = NULL, nlamseq = 20, lam.eps = 1e-02,
-                  w1init = NULL, w2init = NULL, BICtype,
-                  KendallR = NULL,
-                  maxiter = 100, tol = 1e-2, trace = FALSE, lassoverbose = FALSE){
-  n <- nrow(X1)
-  p1 <- ncol(X1); p2 <- ncol(X2);
-  p <- p1 + p2
-  
-  ### Compute Kendall tau if there is no input.
-  if(is.null(KendallR)){
-    R <- estimateR_mixed(X1, X2, type1 = type1, type2 = type2)$R
-  } else {
-    R <- KendallR; rm(KendallR)
-  }
-  
-  R1 <- as.matrix(R[1:p1, 1:p1])
-  R2 <- as.matrix(R[(p1+1):p, (p1+1):p])
-  R12 <- as.matrix(R[1:p1, (p1+1):p])
-  
-  ### Default initial starting point
-  if (is.null(w1init) | is.null(w2init)){
-    RCCA <- myrcc(R1 = R1, R2 = R2, R12 = R12, lambda1 = 0.25, lambda2 = 0.25)
-    if (is.null(w1init)){
-      w1init <- as.matrix(RCCA$w1, ncol=1)
-    }
-    if (is.null(w2init)){
-      w2init <- as.matrix(RCCA$w2, ncol=1)
-    }
-  }
-  
-  # standardize initial starting points - for both lambda seq generation (lambdaseq_generate) and cca algorithm (find_w12bic)
-  
-  # write.table(c(w1init, w2init), sep = ',', file = paste0("data/", path,"/minit",k-1,".csv"), col.names = FALSE, row.names = FALSE)
-}

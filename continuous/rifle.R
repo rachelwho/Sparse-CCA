@@ -1,4 +1,3 @@
-## 43.87954 mins to achieve first stage
 library(rifle)
 ## Example on CCA
 setwd("/projectnb/labci/Qiuyun/SCCA/v2/continuous")
@@ -88,7 +87,7 @@ rifle <-
     
     return(list(x=xprime, W = W[1:iter,], iter = iter))
   }
-### Initial value error
+
 for(k in 1:num_run){
   # Use rifle to improve the leading generalized eigenvector
   init_r <- as.numeric(read.table(paste0("data/", path, "rifleinit",k-1,".csv"))[,1])
@@ -105,8 +104,8 @@ sum(is.na(res[,2]))
 ### run rifle
 for(k in 1:num_run){
   # Use rifle to improve the leading generalized eigenvector
-  init_r <- as.numeric(read.table(paste0("data/", path, "rifleinit",k-1,".csv"))[,1])
-  size = length(init_r)
+  # init_r <- as.numeric(read.table(paste0("data/", path, "rifleinit",k-1,".csv"))[,1])
+  # size = length(init_r)
   init_r <- v + rnorm(size, sd = 0.2)
   Ahat <- as.matrix(read.csv( paste0("data/", path,"Ahat",k-1,".csv") ,header = FALSE))
   Bhat <- as.matrix(read.csv( paste0("data/", path,"Bhat",k-1,".csv") ,header = FALSE))
