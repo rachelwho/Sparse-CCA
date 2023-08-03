@@ -10,9 +10,9 @@ import os
 
 import sys
 
-os.getcwd()
-os.chdir('/Users/apple/Dropbox/Sparse CCA/simulation')
-
+# os.getcwd()
+# os.chdir('/Users/apple/Dropbox/Sparse CCA/simulation')
+sys.path.append('..')
 from SCCA import *
 
 import pandas as pd
