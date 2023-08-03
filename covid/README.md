@@ -1,4 +1,4 @@
-This folder is to reproduce the results of continuous datasets. Each file functions as follows:
+This folder is to reproduce the results of covid datasets. Each file functions as follows:
 
 "Covid_data": the covid-19 data.
 
