@@ -1,11 +1,11 @@
 # Sparse-CCA
 
-This repository contains the python implementation of the $\href{https://arxiv.org/pdf/2010.08627.pdf}{Minimax Quasi-Bayesian estimation in sparse canonical correlation analysis via a Rayleigh quotient function}$ by Qiuyun Zhu and Yves Atchade.
+This repository contains the python implementation of the [Minimax Quasi-Bayesian estimation in sparse canonical correlation analysis via a Rayleigh quotient function](https://arxiv.org/pdf/2010.08627.pdf) by Qiuyun Zhu and Yves Atchade.
 
 Please cite our paper if you find this code useful in your research. 
 
 ## Introduction
-Canonical correlation analysis (CCA) is a popular statistical technique for exploring the relationship between datasets. The estimation of sparse canonical correlation vectors has emerged in recent years as an important but challenging variation of the CCA problem, with widespread applications. Currently available rate-optimal estimators for sparse canonical cor- relation vectors are expensive to compute. We propose a quasi-Bayesian estimation procedure that achieves the minimax estimation rate, and yet is easy to compute by Markov Chain Monte Carlo (MCMC). The method builds on Rayleigh quotient and uses a re-scaled Rayleigh quotient function as a quasi-log-likelihood. We adopt a Bayesian framework that combines this quasi-log-likelihood with a spike-and-slab prior that serves to regularize the inference and promote sparsity. 
+Canonical correlation analysis (CCA) is a popular statistical technique for exploring the relationship between datasets. The estimation of sparse canonical correlation vectors has emerged in recent years as an important but challenging variation of the CCA problem, with widespread applications. Currently available rate-optimal estimators for sparse canonical correlation vectors are expensive to compute. We propose a quasi-Bayesian estimation procedure that achieves the minimax estimation rate, and yet is easy to compute by Markov Chain Monte Carlo (MCMC). The method builds on Rayleigh quotient and uses a re-scaled Rayleigh quotient function as a quasi-log-likelihood. We adopt a Bayesian framework that combines this quasi-log-likelihood with a spike-and-slab prior that serves to regularize the inference and promote sparsity. 
 
 ## Example
 ```
