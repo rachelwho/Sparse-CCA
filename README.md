@@ -7,6 +7,9 @@ Please cite our paper if you find this code useful in your research.
 ## Introduction
 Canonical correlation analysis (CCA) is a popular statistical technique for exploring the relationship between datasets. The estimation of sparse canonical correlation vectors has emerged in recent years as an important but challenging variation of the CCA problem, with widespread applications. Currently available rate-optimal estimators for sparse canonical correlation vectors are expensive to compute. We propose a quasi-Bayesian estimation procedure that achieves the minimax estimation rate, and yet is easy to compute by Markov Chain Monte Carlo (MCMC). The method builds on Rayleigh quotient and uses a re-scaled Rayleigh quotient function as a quasi-log-likelihood. We adopt a Bayesian framework that combines this quasi-log-likelihood with a spike-and-slab prior that serves to regularize the inference and promote sparsity. 
 
+## Instruction
+To reproduce the numerical results in the paper, you may find codes and instruction in each folder. "Continuous" folder is to produce results for continuous datasets. "Mixdata" folder is to produce results for mixed datasets. "Covid" folder is to produce results for covid-19 data. "Mixingtime" folder is to produce results for estimating the mixing time of our algorithm. "Sample_size" is to produce results for estimating the sample size condition for our algorithm.
+
 ## Example
 ```
 from SCCA import *
