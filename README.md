@@ -1,6 +1,6 @@
 # Sparse-CCA
 
-This repository contains the python implementation of the [Minimax Quasi-Bayesian estimation in sparse canonical correlation analysis via a Rayleigh quotient function](https://arxiv.org/pdf/2010.08627.pdf) by Qiuyun Zhu and Yves Atchade.
+This repository contains the python implementation and appendices of the [Minimax Quasi-Bayesian estimation in sparse canonical correlation analysis via a Rayleigh quotient function](https://arxiv.org/pdf/2010.08627.pdf) by Qiuyun Zhu and Yves Atchade.
 
 Please cite our paper if you find this code useful in your research. 
 
