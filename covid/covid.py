@@ -22,7 +22,7 @@ from scipy.cluster.hierarchy import dendrogram, linkage
 
 from scipy.spatial.distance import squareform
 
-os.chdir('/Users/apple/Dropbox/Sparse CCA/simulation/covid')
+os.chdir(os.path.dirname(os.path.abspath("covid.py")))
 data2 = pd.read_excel("../../Real data/Covid_data/mmc2.xlsx", 1, header = 1, index_col = 0)
 data1 = pd.read_excel("../../Real data/Covid_data/mmc1.xlsx", 1, index_col = 2)
 data3 = pd.read_excel("../../Real data/Covid_data/mmc2.xlsx", 2, header = 1, index_col = 0)
