@@ -10,8 +10,6 @@ import os
 
 import sys
 
-# os.getcwd()
-# os.chdir('/Users/apple/Dropbox/Sparse CCA/simulation')
 sys.path.append('..')
 from SCCA import *
 
@@ -97,9 +95,9 @@ error, Res_theta, Res_delta, swap_atem, swap, mAcc, loggam, I, phi,aa, visits = 
 
 
 
-with open('/Users/apple/Desktop/sCCA/res_covid_Rhat.pkl', 'wb') as f:  # Python 3: open(..., 'wb')
+with open('res_covid_Rhat.pkl', 'wb') as f:  # Python 3: open(..., 'wb')
     pickle.dump((error, Res_theta, Res_delta, I),f)
-with open('/Users/apple/Desktop/sCCA/res_covid_Rhat.pkl', 'rb') as f:  # Python 3: open(..., 'wb')
+with open('res_covid_Rhat.pkl', 'rb') as f:  # Python 3: open(..., 'wb')
     error, Res_theta, Res_delta, I= pickle.load(f)
 
 np.savetxt( "real_theta.txt", Res_theta[I==0,], fmt='%.4f')
@@ -191,7 +189,7 @@ dendrogram(L_X, leaf_rotation=90, leaf_font_size=8, labels = cols[ind_X,0])
 plt.xlabel("miRNA")
 plt.ylabel("dissimilarities", )
 plt.title("micro RNAs")
-plt.savefig('../manuscript/biometrika2018/miRNA.pdf', bbox_inches='tight')
+plt.savefig('miRNA.pdf', bbox_inches='tight')
 fcluster(L_X, 0.5)
 
 L_Y = linkage(squareform(dissimilarity_Y), method='average')
@@ -201,7 +199,7 @@ dendrogram(L_Y, leaf_rotation=90, leaf_font_size=8, labels = protein_f[ind_Y-p1]
 plt.xlabel("mRNA")
 plt.ylabel("dissimilarities")
 plt.title("message RNAs")
-plt.savefig('../manuscript/biometrika2018/mRNA.pdf', bbox_inches='tight')
+plt.savefig('mRNA.pdf', bbox_inches='tight')
 fcluster(L_Y, 0.7)
 
 
