@@ -1,7 +1,7 @@
 library(dplyr)
 library(mixedCCA)
-setwd("/projectnb/labci/Qiuyun/SCCA/v2/continuous")
-# setwd("/Users/apple/Desktop/Dropbox/Sparse CCA/simulation/v2/continuous")
+setwd(here::here())
+
 
 path = "250-250_0.7_0.8/"
 tol = 0.001

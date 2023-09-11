@@ -1,7 +1,6 @@
 library(rifle)
 ## Example on CCA
-setwd("/projectnb/labci/Qiuyun/SCCA/v2/continuous")
-# setwd("~/Dropbox/Sparse CCA/simulation/mix")
+setwd(here::here())
 path = "250-250_0.7_0.8/"
 tol = 0.001
 chosen <- 12

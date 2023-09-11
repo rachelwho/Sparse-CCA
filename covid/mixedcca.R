@@ -1,5 +1,5 @@
 library(mixedCCA)
-setwd("~/Desktop/Dropbox/Sparse CCA/simulation/v1/covid")
+setwd(here::here())
 X = read.csv('X_covid.csv', header = FALSE)
 Y = read.csv('Y_covid.csv', header = FALSE)
 e_sig = estimateR_mixed(X, Y,  type1 = "continuous", type2 = "trunc")
